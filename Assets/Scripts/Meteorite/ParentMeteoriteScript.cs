@@ -12,7 +12,7 @@ public class ParentMeteoriteScript : MonoBehaviour
     //[SerializeField] private bool toSpawnMeteorite; //When false, it will be turned true when the meteorite has been spawned.
     public bool meteoriteSpawned; //When it is true, as in when the meteorite has been spawned, nothing will happen
     //[SerializeField] private bool meteoriteInCamera; //When it is true, it will signify that the gameobject is within the screen and begin the spawn process.
-    //public bool meteoriteOutOfRange; //When it is true, it will signify that the gameobject has been out of bounds
+    public bool meteoriteOutOfSite; //When it is true, it will signify that the gameobject has been out of bounds
     public bool meteoriteRespawn = true; //When it is true, the meteorite can be respawned
     //[SerializeField] private bool meteoriteDestroyed; //When it is true, the meteorite will not be loaded, and the gameobject will delete itself
 
@@ -36,9 +36,11 @@ public class ParentMeteoriteScript : MonoBehaviour
 
     }
 
-    //void OnBecameInvisible()
-    //{
-    //    meteoriteSpawned = false;
-    //    Meteorite.SetActive(false);
-    //}
+    void OnBecameInvisible()
+    {
+        meteoriteSpawned = false;
+
+        if (meteoriteSpawned == false && meteoriteOutOfSite == true)
+            Meteorite.SetActive(false);
+    }
 }

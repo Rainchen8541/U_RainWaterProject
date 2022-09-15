@@ -77,8 +77,8 @@ public class TestMeteoriteBehaviour : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        parentMeteoriteScript.meteoriteSpawned = false;
-        gameObject.SetActive(false);
+        parentMeteoriteScript.meteoriteOutOfSite = true;
+        //gameObject.SetActive(false);
     }
 
 
