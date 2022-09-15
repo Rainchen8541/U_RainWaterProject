@@ -7,7 +7,6 @@ public class Movement : MonoBehaviour
     public float speed = 100;
     private Rigidbody2D body;
     public float rotation;
-
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -18,6 +17,7 @@ public class Movement : MonoBehaviour
         //float PlayerVelocityY = body.velocity.y; //Gets the players velocity
         //float PlayerVelocityX = body.velocity.x; //Gets the players velocity
     
+
         ShipMovement();
 
         if (Input.GetKey(KeyCode.Q))
