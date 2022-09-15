@@ -75,11 +75,12 @@ public class TestMeteoriteBehaviour : MonoBehaviour
     //    body.simulated = true;
     //}
 
-    //void OnBecameInvisible()
-    //{
-        //parentMeteoriteScript.meteoriteOutOfRange = true;
-        //gameObject.SetActive(false);
-    //}
+    void OnBecameInvisible()
+    {
+        parentMeteoriteScript.meteoriteSpawned = false;
+        gameObject.SetActive(false);
+    }
+
 
     void OnDestroy()
     {

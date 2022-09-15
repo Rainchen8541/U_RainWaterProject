@@ -36,9 +36,9 @@ public class ParentMeteoriteScript : MonoBehaviour
 
     }
 
-    void OnBecameInvisible()
-    {
-        meteoriteSpawned = false;
-        Meteorite.SetActive(false);
-    }
+    //void OnBecameInvisible()
+    //{
+    //    meteoriteSpawned = false;
+    //    Meteorite.SetActive(false);
+    //}
 }
