@@ -22,6 +22,9 @@ public class CharacterSwappingScript : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha2))
             shipSwap2();
+        
+        if (Input.GetKey(KeyCode.Alpha3))
+            shipSwap3();
 
 
 
@@ -31,15 +34,19 @@ public class CharacterSwappingScript : MonoBehaviour
     {
         startingShip.GetComponent<Movement>().enabled = true;
         Ships[1].GetComponent<Movement>().enabled = false;
+        Ships[2].GetComponent<Movement>().enabled = false;
     }
     void shipSwap2()
     {
         Ships[1].GetComponent<Movement>().enabled = true;
         startingShip.GetComponent<Movement>().enabled = false;
+        Ships[2].GetComponent<Movement>().enabled = false;
     }
     void shipSwap3()
     {
-        
+        Ships[2].GetComponent<Movement>().enabled = true;
+        startingShip.GetComponent<Movement>().enabled = false;
+        Ships[1].GetComponent<Movement>().enabled = false;
     }
     void shipSwap4()
     {
