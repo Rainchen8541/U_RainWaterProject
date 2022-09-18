@@ -10,6 +10,12 @@ public class shipName : MonoBehaviour
     public TextMeshProUGUI shipTitle;
 
     // Update is called once per frame
+
+    void Start()
+    {
+        ShipTF = 1;
+    }
+    
     void Update()
     {
 

@@ -11,6 +11,11 @@ public class speedCounterTally : MonoBehaviour
     public int ShipTF;
 
     // Update is called once per frame
+
+    void Start()
+    {
+        ShipTF = 1;
+    }
     void FixedUpdate()
     {
 
