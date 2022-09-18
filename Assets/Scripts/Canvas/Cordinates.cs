@@ -7,34 +7,63 @@ using TMPro;
 public class Cordinates : MonoBehaviour
 {
 
-    public Rigidbody2D ship;
-    public Rigidbody2D ship2;
+    public Rigidbody2D[] Ships;
     public TextMeshProUGUI shipSpeed;
     [SerializeField] private bool Player1TF = true;
     [SerializeField] private bool Player2TF = false; 
+
+    public int ShipTF;
     // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
     {
-        float shipX1 = ship.position.x;
-        float shipY1 = ship.position.y;
 
-        float shipX2 = ship2.position.x;
-        float shipY2 = ship2.position.y;
-
-        // Ship changing code {#f2a}
         if (Input.GetKey(KeyCode.Alpha1))
-            Player1TF = true;
-            Player2TF = false;
+            ShipTF = 1;
+
         if (Input.GetKey(KeyCode.Alpha2))
-            Player1TF = false;
-            Player2TF = true;
+            ShipTF = 2;
 
-        if (Player1TF == true)
-            shipSpeed.SetText("X: " + shipX1.ToString("0.0") + Environment.NewLine + "Y: " + shipY1.ToString("0.0"));
+        if (Input.GetKey(KeyCode.Alpha3))
+            ShipTF = 3;
 
-        if (Player2TF == true && Player1TF == false)
-            shipSpeed.SetText("X: " + shipX2.ToString("0.0") + Environment.NewLine + "Y: " + shipY2.ToString("0.0"));
+        if (ShipTF == 1)
+            shipSwap1();
+
+        if (ShipTF == 2)
+            shipSwap2();
+
+        if (ShipTF == 3)
+            shipSwap3();
+
     }
+
+    void shipSwap1()
+    {
+        float shipX = Ships[0].position.x;
+        float shipY = Ships[0].position.y;
+        shipSpeed.SetText("X: " + shipX.ToString("0.0") + Environment.NewLine + "Y: " + shipY.ToString("0.0"));
+    }
+
+    void shipSwap2()
+    {
+        float shipX = Ships[1].position.x;
+        float shipY = Ships[1].position.y;
+        shipSpeed.SetText("X: " + shipX.ToString("0.0") + Environment.NewLine + "Y: " + shipY.ToString("0.0"));
+    }
+
+    void shipSwap3()
+    {
+        float shipX = Ships[2].position.x;
+        float shipY = Ships[2].position.y;
+        shipSpeed.SetText("X: " + shipX.ToString("0.0") + Environment.NewLine + "Y: " + shipY.ToString("0.0"));
+    }
+
+    //void shipSwap4()
+    //{
+    //    Vector3 DesiredPosition = Ships[3].position + Offset;
+    //    Vector3 SmoothPosition = Vector3.Lerp(transform.position, DesiredPosition, SmoothSpeed);
+    //    transform.position = SmoothPosition;
+    //}
 }
