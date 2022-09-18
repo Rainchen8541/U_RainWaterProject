@@ -5,29 +5,34 @@ using UnityEngine.UI;
 using TMPro;
 public class shipName : MonoBehaviour
 {
-    public GameObject ship;
-    public GameObject ship2;
-    [SerializeField] private bool Player1TF = true;
-    [SerializeField] private bool Player2TF = false; 
+    public GameObject[] Ships;
+    public int ShipTF;
     public TextMeshProUGUI shipTitle;
 
     // Update is called once per frame
     void Update()
     {
-        // Ship changing code {#f2a}
+
         if (Input.GetKey(KeyCode.Alpha1))
-            Player1TF = true;
-            Player2TF = false;
+            ShipTF = 1;
+
         if (Input.GetKey(KeyCode.Alpha2))
-            Player1TF = false;
-            Player2TF = true;
+            ShipTF = 2;
+
+        if (Input.GetKey(KeyCode.Alpha3))
+            ShipTF = 3;
+
+        if (ShipTF == 1)
+            shipTitle.SetText(Ships[0].name);
+
+        if (ShipTF == 2)
+            shipTitle.SetText(Ships[1].name);
+
+        if (ShipTF == 3)
+            shipTitle.SetText(Ships[2].name);
 
 
 
-        if (Player1TF == true)
-            shipTitle.SetText(ship.name);
 
-        if (Player2TF == true && Player1TF == false)
-            shipTitle.SetText(ship2.name);
     }
 }

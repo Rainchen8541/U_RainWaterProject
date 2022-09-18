@@ -6,43 +6,77 @@ using TMPro;
 
 public class speedCounterTally : MonoBehaviour
 {
-    public Rigidbody2D ship;
-    public Rigidbody2D ship2;
+    public Rigidbody2D[] Ships;
     public TextMeshProUGUI shipSpeed;
-    [SerializeField] private bool Player1TF = true;
-    [SerializeField] private bool Player2TF = false; 
+    public int ShipTF;
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        if (Input.GetKey(KeyCode.Alpha1))
+            ShipTF = 1;
+
+        if (Input.GetKey(KeyCode.Alpha2))
+            ShipTF = 2;
+
+        if (Input.GetKey(KeyCode.Alpha3))
+            ShipTF = 3;
+
+        if (ShipTF == 1)
+            shipSwap1();
+
+        if (ShipTF == 2)
+            shipSwap2();
+
+        if (ShipTF == 3)
+            shipSwap3();
+    }
+
+
+    void shipSwap1()
+    {
         // Pythagoras for ship velocity {#9bce8a, 6}
-        float shipVelocityY = ship.velocity.y; // A
-        float shipVelocityX = ship.velocity.x; // B
+        float shipVelocityY = Ships[0].velocity.y; // A
+        float shipVelocityX = Ships[0].velocity.x; // B
         float shipVelocityXSquared = shipVelocityX * shipVelocityX; // Squaring A
         float shipVelocityYSquared = shipVelocityY * shipVelocityY; // Squaring B
         float shipVelocityXYSquared = shipVelocityXSquared + shipVelocityYSquared; // A^2 and B^2 to make C^2
         float shipVelocityXY = Mathf.Sqrt(shipVelocityXYSquared); // Rooting C^2 for C
         
-        // Pythagoras for ship 2s velocity {#9922aa, 6}
-        float shipVelocityY2 = ship2.velocity.y; // A
-        float shipVelocityX2 = ship2.velocity.x; // B
-        float shipVelocityXSquared2 = shipVelocityX2 * shipVelocityX2; // Squaring A
-        float shipVelocityYSquared2 = shipVelocityY2 * shipVelocityY2; // Squaring B
-        float shipVelocityXYSquared2 = shipVelocityXSquared2 + shipVelocityYSquared2; // A^2 and B^2 to make C^2
-        float shipVelocityXY2 = Mathf.Sqrt(shipVelocityXYSquared2); // Rooting C^2 for C
-
-        // Ship changing code {#f2a}
-        if (Input.GetKey(KeyCode.Alpha1))
-            Player1TF = true;
-            Player2TF = false;
-        if (Input.GetKey(KeyCode.Alpha2))
-            Player1TF = false;
-            Player2TF = true;
-
-        if (Player1TF == true)
-            shipSpeed.SetText(shipVelocityXY.ToString("0.0"));
-
-        if (Player2TF == true && Player1TF == false)
-            shipSpeed.SetText(shipVelocityXY2.ToString("0.0"));
+        shipSpeed.SetText(shipVelocityXY.ToString("0.0"));
     }
+
+    void shipSwap2()
+    {
+        // Pythagoras for ship velocity {#9bce8a, 6}
+        float shipVelocityY = Ships[1].velocity.y; // A
+        float shipVelocityX = Ships[1].velocity.x; // B
+        float shipVelocityXSquared = shipVelocityX * shipVelocityX; // Squaring A
+        float shipVelocityYSquared = shipVelocityY * shipVelocityY; // Squaring B
+        float shipVelocityXYSquared = shipVelocityXSquared + shipVelocityYSquared; // A^2 and B^2 to make C^2
+        float shipVelocityXY = Mathf.Sqrt(shipVelocityXYSquared); // Rooting C^2 for C
+
+        shipSpeed.SetText(shipVelocityXY.ToString("0.0"));
+    }
+
+    void shipSwap3()
+    {
+        // Pythagoras for ship velocity {#9bce8a, 6}
+        float shipVelocityY = Ships[2].velocity.y; // A
+        float shipVelocityX = Ships[2].velocity.x; // B
+        float shipVelocityXSquared = shipVelocityX * shipVelocityX; // Squaring A
+        float shipVelocityYSquared = shipVelocityY * shipVelocityY; // Squaring B
+        float shipVelocityXYSquared = shipVelocityXSquared + shipVelocityYSquared; // A^2 and B^2 to make C^2
+        float shipVelocityXY = Mathf.Sqrt(shipVelocityXYSquared); // Rooting C^2 for C
+        
+        shipSpeed.SetText(shipVelocityXY.ToString("0.0"));
+    }
+
+    //void shipSwap4()
+    //{
+    //    Vector3 DesiredPosition = Ships[3].position + Offset;
+    //    Vector3 SmoothPosition = Vector3.Lerp(transform.position, DesiredPosition, SmoothSpeed);
+    //    transform.position = SmoothPosition;
+    //}
 }

@@ -9,13 +9,15 @@ public class Cordinates : MonoBehaviour
 
     public Rigidbody2D[] Ships;
     public TextMeshProUGUI shipSpeed;
-    [SerializeField] private bool Player1TF = true;
-    [SerializeField] private bool Player2TF = false; 
-
     public int ShipTF;
     // Start is called before the first frame update
 
     // Update is called once per frame
+
+    void Start()
+    {
+        ShipTF = 1;
+    }
     void Update()
     {
 
