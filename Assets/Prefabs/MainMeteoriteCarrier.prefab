@@ -168,6 +168,7 @@ MonoBehaviour:
   testMeteoriteBehaviour: {fileID: 1266899335647870482}
   Meteorite: {fileID: 6738371933026583999}
   meteoriteSpawned: 0
+  meteoriteOutOfSite: 0
   meteoriteRespawn: 1
 --- !u!212 &7252359185404831577
 SpriteRenderer:
@@ -233,9 +234,17 @@ PrefabInstance:
       value: Test Meteorite
       objectReference: {fileID: 0}
     - target: {fileID: 8388226198763910753, guid: a766d14e3c9595b47b6626e96b5e9175, type: 3}
+      propertyPath: Itself
+      value: 
+      objectReference: {fileID: 1405984111993508383}
+    - target: {fileID: 8388226198763910753, guid: a766d14e3c9595b47b6626e96b5e9175, type: 3}
       propertyPath: parentMeteorite
       value: 
       objectReference: {fileID: 7252359185404831579}
+    - target: {fileID: 8388226198763910753, guid: a766d14e3c9595b47b6626e96b5e9175, type: 3}
+      propertyPath: meteoriteParticles
+      value: 
+      objectReference: {fileID: 4107572677838894294, guid: ed3b769dcf38f8547b256bc26eae9c3c, type: 3}
     - target: {fileID: 8388226198763910753, guid: a766d14e3c9595b47b6626e96b5e9175, type: 3}
       propertyPath: parentMeteoriteScript
       value: 

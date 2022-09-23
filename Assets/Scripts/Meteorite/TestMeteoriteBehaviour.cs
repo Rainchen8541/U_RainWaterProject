@@ -13,11 +13,14 @@ public class TestMeteoriteBehaviour : MonoBehaviour
     public ParentMeteoriteScript parentMeteoriteScript;
     public GameObject mainMeteoriteController;
     public GameObject parentMeteorite;
+    public GameObject meteoriteParticles;
+    public Transform Itself;
     //public Transform T_parentMeteorite;
     //public GameObject GO_parentMeteorite;
     //public GameObject M_thisObject;
     //[SerializeField] private float degreesToRotate;
     //public bool meteoriteOutOfRange;
+
 
     public void Start()
     {
@@ -58,6 +61,7 @@ public class TestMeteoriteBehaviour : MonoBehaviour
 
     void Destroy()
     {
+        Instantiate(meteoriteParticles, Itself.position, Itself.rotation);
         Destroy(this.gameObject);
     }
 
@@ -87,6 +91,7 @@ public class TestMeteoriteBehaviour : MonoBehaviour
         //parentMeteoriteScript.meteoriteRespawn = false; //change to go rather than the prefab !!!!!!!
         Destroy(parentMeteorite);
         Destroy(mainMeteoriteController);
+  
     }
     
 }
