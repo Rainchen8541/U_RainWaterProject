@@ -6,10 +6,6 @@ public class BackgroundScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public float Parallax = 1.5f;
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void FixedUpdate()
